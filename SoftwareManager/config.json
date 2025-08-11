@@ -1,0 +1,137 @@
+{
+  "Categories": [
+    {
+      "Name": "开发工具",
+      "Software": [
+        {
+          "Name": "Visual Studio Code",
+          "Description": "轻量级代码编辑器，支持多种编程语言",
+          "Installed": true,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\VSCode",
+          "InstallPackagePath": "\\\\server\\software\\VSCode-win32-x64.exe",
+          "DownloadUrl": "https://code.visualstudio.com/download",
+          "IconPath": "vs.png"
+        },
+        {
+          "Name": "IntelliJ IDEA",
+          "Description": "Java集成开发环境",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\IntelliJ IDEA",
+          "InstallPackagePath": "\\\\server\\software\\ideaIU-2023.1.exe",
+          "DownloadUrl": "https://www.jetbrains.com/idea/download/",
+          "IconPath": "idea.png"
+        },
+        {
+          "Name": "Android Studio",
+          "Description": "Android应用开发环境",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Android Studio",
+          "InstallPackagePath": "\\\\server\\software\\android-studio-2022.1.1.exe",
+          "DownloadUrl": "https://developer.android.com/studio",
+          "IconPath": "as.png"
+        },
+        {
+          "Name": "Git",
+          "Description": "分布式版本控制系统",
+          "Installed": true,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Git",
+          "InstallPackagePath": "\\\\server\\software\\Git-2.40.0-64-bit.exe",
+          "DownloadUrl": "https://git-scm.com/download/win",
+          "IconPath": "git.png"
+        }
+      ]
+    },
+    {
+      "Name": "设计软件",
+      "Software": [
+        {
+          "Name": "Adobe Photoshop",
+          "Description": "专业图像处理软件",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Adobe Photoshop",
+          "InstallPackagePath": "\\\\server\\software\\Adobe_Photoshop_2023.exe",
+          "DownloadUrl": "https://www.adobe.com/products/photoshop.html",
+          "IconPath": "ps.png"
+        },
+        {
+          "Name": "Adobe Illustrator",
+          "Description": "矢量图形设计软件",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Adobe Illustrator",
+          "InstallPackagePath": "\\\\server\\software\\Adobe_Illustrator_2023.exe",
+          "DownloadUrl": "https://www.adobe.com/products/illustrator.html",
+          "IconPath": "ai.png"
+        }
+      ]
+    },
+    {
+      "Name": "测试工具",
+      "Software": [
+        {
+          "Name": "Postman",
+          "Description": "API测试工具",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Postman",
+          "InstallPackagePath": "\\\\server\\software\\Postman-win64-latest.exe",
+          "DownloadUrl": "https://www.postman.com/downloads/",
+          "IconPath": "postman.png"
+        },
+        {
+          "Name": "JMeter",
+          "Description": "性能测试工具",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JMeter",
+          "InstallPackagePath": "\\\\server\\software\\apache-jmeter-5.5.zip",
+          "DownloadUrl": "https://jmeter.apache.org/download_jmeter.cgi",
+          "IconPath": "jmeter.png"
+        }
+      ]
+    },
+    {
+      "Name": "办公软件",
+      "Software": [
+        {
+          "Name": "Microsoft Office",
+          "Description": "办公套件",
+          "Installed": true,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Office16",
+          "InstallPackagePath": "\\\\server\\software\\Office_Professional_Plus_2021.iso",
+          "DownloadUrl": "https://www.microsoft.com/microsoft-365",
+          "IconPath": "office.png"
+        },
+        {
+          "Name": "WPS Office",
+          "Description": "国产办公套件",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\WPS Office",
+          "InstallPackagePath": "\\\\server\\software\\WPS_Office_2023.exe",
+          "DownloadUrl": "https://www.wps.cn/product/wpsoffice",
+          "IconPath": "wps.png"
+        }
+      ]
+    },
+    {
+      "Name": "系统工具",
+      "Software": [
+        {
+          "Name": "7-Zip",
+          "Description": "高效压缩工具",
+          "Installed": true,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\7-Zip",
+          "InstallPackagePath": "\\\\server\\software\\7z2201-x64.exe",
+          "DownloadUrl": "https://www.7-zip.org/download.html",
+          "IconPath": "7zip.png"
+        },
+        {
+          "Name": "TeamViewer",
+          "Description": "远程控制软件",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\TeamViewer",
+          "InstallPackagePath": "\\\\server\\software\\TeamViewer_Setup.exe",
+          "DownloadUrl": "https://www.teamviewer.com/download/windows/",
+          "IconPath": "teamviewer.png"
+        }
+      ]
+    }
+  ]
+}

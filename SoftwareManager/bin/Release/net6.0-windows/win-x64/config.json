@@ -1,0 +1,83 @@
+{
+  "Categories": [
+    {
+      "Name": "开发软件",
+      "Software": [
+        {
+          "Name": "Visual Studio 2022",
+          "Description": "微软集成开发环境",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\VisualStudio\\17.0",
+          "InstallPackagePath": "\\\\server\\software\\vs2022\\vs_community.exe",
+          "DownloadUrl": "https://visualstudio.microsoft.com/zh-hans/downloads/"
+        },
+        {
+          "Name": "Visual Studio Code",
+          "Description": "轻量级代码编辑器",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{771FD6B0-FA20-440A-A002-3B3BAC16DC50}_is1",
+          "InstallPackagePath": "\\\\server\\software\\vscode\\VSCodeSetup-x64.exe",
+          "DownloadUrl": "https://code.visualstudio.com/download"
+        },
+        {
+          "Name": "Git",
+          "Description": "分布式版本控制系统",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\GitForWindows",
+          "InstallPackagePath": "\\\\server\\software\\git\\Git-2.40.0-64-bit.exe",
+          "DownloadUrl": "https://git-scm.com/download/win"
+        }
+      ]
+    },
+    {
+      "Name": "设计软件",
+      "Software": [
+        {
+          "Name": "Adobe Photoshop",
+          "Description": "图像处理软件",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Adobe\\Photoshop\\24.0",
+          "InstallPackagePath": "\\\\server\\software\\adobe\\photoshop\\setup.exe",
+          "DownloadUrl": "https://www.adobe.com/cn/products/photoshop.html"
+        },
+        {
+          "Name": "Figma",
+          "Description": "协作设计工具",
+          "Installed": false,
+          "RegistryPath": "HKEY_CURRENT_USER\\Software\\Figma\\Figma",
+          "InstallPackagePath": "\\\\server\\software\\figma\\FigmaSetup.exe",
+          "DownloadUrl": "https://www.figma.com/downloads/"
+        }
+      ]
+    },
+    {
+      "Name": "通用软件",
+      "Software": [
+        {
+          "Name": "Microsoft Office",
+          "Description": "办公套件",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Office\\16.0\\Common\\InstallRoot",
+          "InstallPackagePath": "\\\\server\\software\\office\\setup.exe",
+          "DownloadUrl": "https://www.microsoft.com/zh-cn/microsoft-365/microsoft-office"
+        },
+        {
+          "Name": "7-Zip",
+          "Description": "文件压缩工具",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\7-Zip",
+          "InstallPackagePath": "\\\\server\\software\\7zip\\7z2201-x64.exe",
+          "DownloadUrl": "https://www.7-zip.org/download.html"
+        },
+        {
+          "Name": "Chrome",
+          "Description": "网页浏览器",
+          "Installed": false,
+          "RegistryPath": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe",
+          "InstallPackagePath": "\\\\server\\software\\chrome\\ChromeSetup.exe",
+          "DownloadUrl": "https://www.google.cn/chrome/"
+        }
+      ]
+    }
+  ]
+}

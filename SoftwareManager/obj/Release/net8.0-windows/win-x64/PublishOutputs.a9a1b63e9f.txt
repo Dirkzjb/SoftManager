@@ -1,0 +1,2 @@
+D:\Test\SoftwareManager\publish\SoftwareManager.pdb
+D:\Test\SoftwareManager\publish\SoftwareManager.exe

@@ -1,0 +1,6 @@
+D:\Test\SoftwareManager\publish\SoftwareManager.exe
+D:\Test\SoftwareManager\publish\config.json
+D:\Test\SoftwareManager\publish\SoftwareManager.dll
+D:\Test\SoftwareManager\publish\SoftwareManager.deps.json
+D:\Test\SoftwareManager\publish\SoftwareManager.runtimeconfig.json
+D:\Test\SoftwareManager\publish\SoftwareManager.pdb

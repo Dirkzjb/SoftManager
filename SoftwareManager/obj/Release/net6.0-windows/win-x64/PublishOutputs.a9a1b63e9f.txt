@@ -1,0 +1,3 @@
+D:\Test\SoftwareManager\publish\SoftwareManager.pdb
+D:\Test\SoftwareManager\publish\config.json
+D:\Test\SoftwareManager\publish\SoftwareManager.exe
