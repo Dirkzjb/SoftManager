@@ -134,8 +134,7 @@ namespace SoftwareManager.Forms
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Items.AddRange(new object[] {
-            "客户端",
-            "服务器",
+            "技术",
             "策划",
             "美术",
             "QA"});

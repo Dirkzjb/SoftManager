@@ -16,8 +16,9 @@ namespace SoftwareManager.Forms
         {
             _mainForm = mainForm;
             InitializeComponent();
-            _activeButton = btnProgramCheck; // 默认选中软件安装标签
+            _activeButton = btnInitialize; // 默认选中项目初始化标签
             ActivateButton(_activeButton);
+            ShowInitializePanel(); // 显示项目初始化面板
         }
 
         private void InitializeComponent()
@@ -49,7 +50,7 @@ namespace SoftwareManager.Forms
             this.btnInitialize.Name = "btnInitialize";
             this.btnInitialize.Size = new Size(150, 60);
             this.btnInitialize.TabIndex = 1;
-            this.btnInitialize.Text = "初始化";
+            this.btnInitialize.Text = "项目初始化";
             this.btnInitialize.UseVisualStyleBackColor = false;
             this.btnInitialize.Click += new EventHandler(this.btnInitialize_Click);
             this.btnInitialize.MouseEnter += new EventHandler(this.btn_MouseEnter);

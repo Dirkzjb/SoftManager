@@ -212,6 +212,9 @@ public MainForm()
                         control.Visible = true;
                     }
                 }
+                
+                // 重新排列控件
+                RearrangeControls();
                 return;
             }
             
@@ -228,8 +231,50 @@ public MainForm()
                 string name = control.Controls["lblName"].Text.ToLower();
                 string description = control.Controls["lblDescription"].Text.ToLower();
                 
-                // 如果名称或描述包含搜索文本，则显示
-                control.Visible = name.Contains(searchText) || description.Contains(searchText);
+                // 模糊查找：如果名称或描述包含搜索文本的任何部分，则显示
+                bool nameMatch = name.Contains(searchText);
+                bool descMatch = description.Contains(searchText);
+                
+                // 拆分搜索文本为单词，进行更灵活的匹配
+                bool wordMatch = false;
+                string[] searchWords = searchText.Split(new char[] { ' ', ',', '.', ';', '-', '_' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string word in searchWords)
+                {
+                    if (word.Length >= 2) // 只匹配长度至少为2的单词
+                    {
+                        if (name.Contains(word) || description.Contains(word))
+                        {
+                            wordMatch = true;
+                            break;
+                        }
+                    }
+                }
+                
+                // 如果任何一种匹配成功，则显示该控件
+                control.Visible = nameMatch || descMatch || wordMatch;
+            }
+            
+            // 重新排列控件
+            RearrangeControls();
+        }
+        
+        // 重新排列可见控件，使其紧凑显示
+        private void RearrangeControls()
+        {
+            string currentTabName = tabControl.SelectedTab?.Text;
+            if (string.IsNullOrEmpty(currentTabName) || !_softwareControls.ContainsKey(currentTabName))
+                return;
+                
+            var controlsList = _softwareControls[currentTabName];
+            int yPos = 10;
+            
+            foreach (var control in controlsList)
+            {
+                if (control.Visible)
+                {
+                    control.Location = new Point(control.Location.X, yPos);
+                    yPos += control.Height + 10; // 增加间距
+                }
             }
         }
 
@@ -242,15 +287,17 @@ public MainForm()
         // 显示初始化面板
         public void ShowInitializePanel()
         {
-            // 隐藏标签控件
+            // 隐藏标签控件和工具栏
             tabControl.Visible = false;
+            toolStrip.Visible = false;
             
             // 创建并显示初始化面板
             InitializePanel initPanel = new InitializePanel();
             initPanel.ConfigurationCompleted += (s, e) => {
-                // 配置完成后，移除面板并显示标签控件
+                // 配置完成后，移除面板并显示标签控件和工具栏
                 this.Controls.Remove(initPanel);
                 tabControl.Visible = true;
+                toolStrip.Visible = true;
                 
                 // 重新加载软件数据
                 _ = LoadSoftwareDataAsync();
@@ -264,8 +311,9 @@ public MainForm()
         // 显示软件安装面板（即主标签控件）
         public void ShowProgramCheckPanel()
         {
-            // 确保标签控件可见
+            // 确保标签控件和工具栏可见
             tabControl.Visible = true;
+            toolStrip.Visible = true;
             
             // 移除可能存在的其他面板
             foreach (Control control in this.Controls)
