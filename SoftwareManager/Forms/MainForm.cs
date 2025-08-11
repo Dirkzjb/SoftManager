@@ -13,7 +13,7 @@ namespace SoftwareManager.Forms
     public partial class MainForm : Form
     {
         private DataManager _dataManager;
-        private SoftwareData _softwareData;
+        private Models.SoftwareData _softwareData;
         private Dictionary<string, List<SoftwareItemControl>> _softwareControls;
         private string _configPath;
         private string _remoteConfigUrl;
@@ -29,12 +29,7 @@ public MainForm()
     // 设置TabControl绘制模式
     tabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
     
-    // 配置文件路径
-    _configPath = Path.Combine(Application.StartupPath, "config.json");
-    // 远程配置URL（实际使用时替换为真实URL）
-    _remoteConfigUrl = "http://example.com/config.json";
-    
-    _dataManager = new DataManager(_configPath, _remoteConfigUrl);
+    // 使用DataManager单例，不需要在这里创建实例
     
     // 初始化并添加TabForm
     TabForm tabForm = new TabForm(this);
@@ -58,8 +53,8 @@ public MainForm()
     // 调整状态栏位置
     statusStrip.Location = new System.Drawing.Point(0, this.ClientSize.Height - statusStrip.Height);
     
-    // 设置版本信息
-    versionLabel.Text = $"配置加载成功 (版本: 1.0.1)";
+    // 设置初始版本信息
+    versionLabel.Text = $"配置加载中... (版本: 未知)";
     versionLabel.Alignment = ToolStripItemAlignment.Right;
 }
 
@@ -76,8 +71,12 @@ public MainForm()
         {
             try
             {
-                // 加载软件数据
-                _softwareData = await _dataManager.LoadSoftwareDataAsync();
+                // 显示加载中状态
+                statusLabel.Text = "正在加载软件数据...";
+                Application.DoEvents();
+                
+                // 使用DataManager单例加载软件数据
+                _softwareData = await DataManager.Instance.LoadSoftwareDataAsync();
                 
                 if (_softwareData == null)
                 {
@@ -86,17 +85,17 @@ public MainForm()
                 }
                 
                 // 创建"全部"类别
-                var allSoftware = new List<Software>();
+                var allSoftwareItems = new List<Models.SoftwareItem>();
                 foreach (var category in _softwareData.Categories)
                 {
-                    allSoftware.AddRange(category.Software);
+                    allSoftwareItems.AddRange(category.Software);
                 }
                 
                 // 添加"全部"标签页
-                var allCategory = new SoftwareCategory
+                var allCategory = new Models.SoftwareCategory
                 {
                     Name = "全部",
-                    Software = allSoftware
+                    Software = allSoftwareItems
                 };
                 
                 // 清空现有标签页
@@ -112,8 +111,9 @@ public MainForm()
                     AddCategoryTab(category);
                 }
                 
-            // 更新状态栏
-            statusLabel.Text = "软件数据加载完成";
+                // 更新状态栏和版本信息
+                statusLabel.Text = "软件数据加载完成";
+                versionLabel.Text = $"配置加载成功 (版本: {DataManager.Instance.SoftwareData?.Version ?? "未知"})";
             }
             catch (Exception ex)
             {
@@ -122,7 +122,7 @@ public MainForm()
             }
         }
 
-        private void AddCategoryTab(SoftwareCategory category)
+        private void AddCategoryTab(Models.SoftwareCategory category)
         {
             // 创建新标签页
             TabPage tabPage = new TabPage(category.Name);
@@ -140,8 +140,20 @@ public MainForm()
             List<SoftwareItemControl> controls = new List<SoftwareItemControl>();
             int yPos = 10;
             
-            foreach (var software in category.Software)
+            foreach (var softwareItem in category.Software)
             {
+                // 将SoftwareItem转换为Software
+                Software software = new Software
+                {
+                    Name = softwareItem.Name,
+                    Description = softwareItem.Description,
+                    Installed = softwareItem.Installed,
+                    RegistryPath = softwareItem.RegistryPath,
+                    InstallPackagePath = softwareItem.InstallPackagePath,
+                    DownloadUrl = softwareItem.DownloadUrl,
+                    IconPath = softwareItem.Icon // 注意：SoftwareItem中的Icon对应Software中的IconPath
+                };
+                
                 SoftwareItemControl control = new SoftwareItemControl();
                 control.SetSoftware(software);
                 control.Location = new Point(10, yPos);
